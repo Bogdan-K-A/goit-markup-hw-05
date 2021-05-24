@@ -282,8 +282,35 @@ img {
 }
 
 .galeri-container .galeri-item {
+	position: relative;
 	margin-left: var(--galeri-set-gap);
 	flex-basis: calc((100% * 90px) / 3 - var(--galeri-set-gap));
+}
+
+.galeri-container .galeri-item::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 70px;
+	left: 0;
+	bottom: 0;
+
+	background: rgba(47, 48, 58, 0.8);
+}
+.galeri-container .galeri-item p {
+	position: absolute;
+	left: 83px;
+	bottom: 27px;
+	z-index: 1;
+
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 1.14;
+	text-align: center;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+
+	color: var(--primary-wight-color);
 }
 /* Чем мы занимаемся=========and========== */
 
@@ -529,15 +556,54 @@ img {
 		0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
+/* --------------------------------- voerlay -------------------------------- */
+.galeri-thumb {
+	position: relative;
+	overflow: hidden;
+}
+.desc-overlay {
+	content: "";
+	width: 100%;
+	height: 100%;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(33, 150, 243, 0.9);
+
+	transform: translateY(100%);
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-galeri-item:hover .desc-overlay,
+.portfolio-galeri-item:focus .desc-overlay {
+	transform: translateY(0);
+}
+
+.desc-overlay p {
+	width: 322px;
+
+	position: absolute;
+	bottom: 63px;
+	left: 24px;
+	z-index: 1;
+
+	font-size: 18px;
+	line-height: 1.56;
+	letter-spacing: 0.03em;
+
+	color: var(--primary-wight-color);
+}
 /* Оформление карточек галереи */
-.galeri-set {
+.portfolio-galeri-set {
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: calc(-1 * var(--galeri-set-gap));
 	margin-left: calc(-1 * var(--galeri-set-gap));
 }
 
-.galeri-set .galeri-item {
+.portfolio-galeri-set .portfolio-galeri-item {
 	margin-top: var(--galeri-set-gap);
 	margin-left: var(--galeri-set-gap);
 	flex-basis: calc((100% * 90px) / 3 - var(--galeri-set-gap));
@@ -553,8 +619,8 @@ img {
 	border-top: none;
 }
 
-.galeri-item:hover,
-.galeri-item:focus {
+.portfolio-galeri-item:hover,
+.portfolio-galeri-item:focus {
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
 		1px 4px 6px rgba(0, 0, 0, 0.16);
 }
