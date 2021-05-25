@@ -83,9 +83,7 @@ img {
 	color: var(--primary-text-color);
 	text-decoration: none;
 
-	transition-property: color;
-	transition-duration: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav .nav-link:hover,
@@ -166,9 +164,7 @@ img {
 	color: var(--secondary-text-color);
 	text-decoration: none;
 
-	transition-property: color;
-	transition-duration: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==============Header end================*/
@@ -223,15 +219,67 @@ img {
 	border: none;
 	cursor: pointer;
 
-	transition-property: background-color;
-	transition-duration: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover,
 .btn:focus {
 	background-color: var(--batton-hover);
 }
+/* --------------------------------- Модалка -------------------------------- */
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0, 0, 0, 0.2);
+
+	opacity: 1;
+	transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+	transform: translate(-50%, -50%) scale(0.8);
+}
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	min-width: 528px;
+	min-height: 581px;
+	padding: 15px;
+
+	background: var(--primary-wight-color);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+		0px 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+
+	transform: translate(-50%, -50%) scale(1);
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal button {
+	position: absolute;
+	top: 8px;
+	left: 490px;
+
+	width: 30px;
+	height: 30px;
+
+	background: var(--primary-wight-color);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	border-radius: 50%;
+}
+/* --------------------------------- Модалка and-------------------------------- */
 /*Hero ==============end================*/
 
 /*Sectin оформление заголовков и текста*/
@@ -400,9 +448,7 @@ img {
 	border-radius: 50%;
 	background-color: rgba(255, 255, 255, 0.1);
 
-	transition-property: background-color;
-	transition-duration: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-icon:hover,
@@ -413,9 +459,7 @@ img {
 .social-icon {
 	fill: #afb1b8;
 
-	transition-property: fill;
-	transition-duration: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-icon:hover .social-icon,
@@ -439,9 +483,8 @@ img {
 	border-radius: 4px;
 	fill: #afb1b8;
 
-	transition-property: fill, border-color;
-	transition-duration: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition: fill, border-color;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .partners-link:hover,
@@ -497,9 +540,7 @@ img {
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.6);
 
-	transition-property: color;
-	transition-duration: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-text {
@@ -556,7 +597,7 @@ img {
 		0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
-/* --------------------------------- voerlay -------------------------------- */
+/* --------------------------------- overlay -------------------------------- */
 .galeri-thumb {
 	position: relative;
 	overflow: hidden;
@@ -572,8 +613,7 @@ img {
 	background: rgba(33, 150, 243, 0.9);
 
 	transform: translateY(100%);
-	transition-duration: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-galeri-item:hover .desc-overlay,
@@ -595,6 +635,8 @@ img {
 
 	color: var(--primary-wight-color);
 }
+/* --------------------------------- overlay and-------------------------------- */
+
 /* Оформление карточек галереи */
 .portfolio-galeri-set {
 	display: flex;
